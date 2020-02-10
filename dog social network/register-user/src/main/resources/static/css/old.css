@@ -1,0 +1,112 @@
+.slideShow {
+	position: relative;
+	display: inline-block;
+    margin-left: 200px;
+}
+
+.slide {
+	display: inline-block;
+	position: absolute;
+	margin-right: 1000px;
+}
+
+.upload {
+	position: relative;
+	left: 100px;
+	font-family: Arial;
+	font-size: 20px;
+}
+
+.dogTitle {
+    position: relative;
+    display: inline;
+    left: 10px;
+    top: 10px;
+    color: #0000ff;
+    font-size: 50px;
+    font-family: Arial;
+}
+
+.dogSubtitle {
+	position: relative;
+	display: inline;
+	color: #0000ff;
+	font-size: 30px;
+}
+
+.dogLogo {
+	position: relative;
+	display: inline;
+}
+
+.dogFace {
+	position: relative;
+	left: 1000px;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc
+}
+
+footer p {
+    padding: 15px;
+}
+
+.error-message {
+    color: #a94442;
+}
+
+.error-message:first-letter {
+    text-transform: capitalize;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    border: none;
+    background-color: #ffffff;
+
+}
+
+.dropbtn:focus {
+	outline: none;
+}
+
+/* Dropdown button on hover & focus */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  left: 800px;
+  border: none;
+  background-color: #ffffff;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display:block;
+
+}

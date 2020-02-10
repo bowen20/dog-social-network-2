@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Spring Security - dog-social-network
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: Bowen Ng
+Implementation-Vendor-Id: com.spring.security
+Build-Jdk: 1.8.0_241
+Implementation-URL: http://projects.spring.io/spring-boot/dog-social-n
+ etwork/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

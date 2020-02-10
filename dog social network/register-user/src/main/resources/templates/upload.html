@@ -1,0 +1,84 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/old.css}"/>
+</head>
+<body>
+<script>
+function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	}
+var url = window.location.href;
+var session = url.slice(29);
+var myParent = document.body;
+
+var div = document.createElement("div");
+var div1 = document.createElement("div");
+div.className = "dropdown";
+div1.id = "myDropdown";
+div1.className="dropdown-content";
+var update = document.createElement("a");
+update.href = "/showFormForUpdate/" + session;
+var update1 = document.createTextNode("Update");
+update.appendChild(update1);
+var logout = document.createElement("a");
+logout.href = "/logout";
+var logout1 = document.createTextNode("Logout");
+logout.appendChild(logout1);
+var upload = document.createElement("a");
+upload.href = "/upload/" + session;
+var upload1 = document.createTextNode("Upload Picture");
+upload.appendChild(upload1);
+div1.appendChild(update);
+div1.appendChild(upload);
+div1.appendChild(logout);
+var button = document.createElement("button");
+button.onclick = function(){ myFunction(); }
+button.className="dropbtn";
+var img = document.createElement("img");
+img.src = "/images/dog.png";
+button.appendChild(img);
+div.appendChild(button);
+div.appendChild(div1);
+var home = document.createElement("a");
+var logo = document.createElement("img");
+home.href = "/users/list/" + session;
+logo.src = "/images/icon.png";
+logo.className = "dogLogo";
+home.appendChild(logo);
+var title = document.createElement("p");
+title.className = "dogTitle";
+var title1 = document.createTextNode("Dog Social Network");
+title.appendChild(title1);
+myParent.appendChild(home);
+myParent.appendChild(title);
+myParent.appendChild(div);
+</script>
+
+
+<br></br>
+<br></br>
+<br></br>
+  <div class="col-md-6 col-md-offset-1">
+		<form th:action="@{/upload}" th:object="${user}" enctype="multipart/form-data" method="post">
+		 <input type="hidden"
+                           th:field="*{id}" />
+                           
+				<label style="font-family: Arial;font-size: 30px;">File to upload:</label>
+				<br></br>
+				<br></br>
+				<input style="font-family: Arial;font-size: 20px;" type="file" name="file" />
+				<br></br>
+				<div>
+	
+     <button type="submit" style="font-family: Arial;font-size: 20px;">Upload</button>
+     </div>
+		</form>
+		</div>
+	<div>
+				<img th:src="${fileName}" />
+	</div>
+
+</body>
+</html>

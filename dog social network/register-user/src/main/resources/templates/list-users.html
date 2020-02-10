@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/old.css}"/>
+    
+<title>User Directory</title>
+</head>
+<body>
+<script>
+function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	}
+var url = window.location.href;
+var session = url.slice(33);
+var myParent = document.body;
+
+var div = document.createElement("div");
+var div1 = document.createElement("div");
+div.className = "dropdown";
+div1.id = "myDropdown";
+div1.className="dropdown-content";
+var update = document.createElement("a");
+update.href = "/showFormForUpdate/" + session;
+var update1 = document.createTextNode("Update");
+update.appendChild(update1);
+var logout = document.createElement("a");
+logout.href = "/logout";
+var logout1 = document.createTextNode("Logout");
+logout.appendChild(logout1);
+var upload = document.createElement("a");
+upload.href = "/upload/" + session;
+var upload1 = document.createTextNode("Upload Picture");
+upload.appendChild(upload1);
+div1.appendChild(update);
+div1.appendChild(upload);
+div1.appendChild(logout);
+var button = document.createElement("button");
+button.onclick = function(){ myFunction(); }
+button.className="dropbtn";
+var img = document.createElement("img");
+img.src = "/images/dog.png";
+button.appendChild(img);
+div.appendChild(button);
+div.appendChild(div1);
+var home = document.createElement("a");
+var logo = document.createElement("img");
+home.href = "/users/list/" + session;
+logo.src = "/images/icon.png";
+logo.className = "dogLogo";
+home.appendChild(logo);
+var title = document.createElement("p");
+title.className = "dogTitle";
+var title1 = document.createTextNode("Dog Social Network");
+title.appendChild(title1);
+myParent.appendChild(home);
+myParent.appendChild(title);
+myParent.appendChild(div);
+</script>
+<br></br>
+<div class="slideShow">
+<img th:src="${image}" class="slideShow" />
+<form class="slide" th:action="@{/slider}" th:object="${slide}" method="post">
+ <input type="hidden"
+                           th:field="*{index}"/>
+                            <input type="hidden"
+                           th:field="*{id}"/>
+<input type="submit"
+name="slideshow"
+ id="slideshow"
+ class="btn btn-success"
+ value="Next"/>
+ </form>
+</div>
+<div class="container">
+<p class="dogSubtitle">User Directory</p>
+<hr></hr>
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+<tr>
+<th style="font-family: Arial;">First Name</th>
+<th style="font-family: Arial;">Last Name </th>
+<th style="font-family: Arial;">Email</th>
+<th style="font-family: Arial;">Breed</th>
+<th style="font-family: Arial;">Age</th>
+<th style="font-family: Arial;">Color</th>
+<th style="font-family: Arial;">Weight</th>
+<th style="font-family: Arial;">Zip Code</th>
+<th style="font-family: Arial;">Name</th>
+</tr>
+</thead>
+
+<tbody>
+<tr th:each="tempUser : ${users}">
+<td style="font-family: Arial;" th:text="${tempUser.firstName}" />
+<td style="font-family: Arial;" th:text="${tempUser.lastName}" />
+<td style="font-family: Arial;" th:text="${tempUser.email}" />
+<td style="font-family: Arial;" th:text="${tempUser.breed}" />
+<td style="font-family: Arial;" th:text="${tempUser.age}" />
+<td style="font-family: Arial;" th:text="${tempUser.color}" />
+<td style="font-family: Arial;" th:text="${tempUser.weight}" />
+<td style="font-family: Arial;" th:text="${tempUser.zipCode}" />
+<td style="font-family: Arial;" th:text="${tempUser.name}" />
+</tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
